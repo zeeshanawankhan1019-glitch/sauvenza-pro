@@ -1,0 +1,48 @@
+# robots.txt for Sauvenza (https://sauvenza.pages.dev)
+#
+# Every search engine and AI assistant is welcome to crawl, index, quote and
+# cite this site. Nothing here is private. The explicit groups below make that
+# intent unambiguous for each crawler, including AI search, AI training and
+# on-demand "user" fetchers.
+
+User-agent: *
+Allow: /
+
+# --- Classic search engines ---
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Bingbot
+User-agent: Slurp
+User-agent: DuckDuckBot
+User-agent: Applebot
+User-agent: YandexBot
+User-agent: Baiduspider
+User-agent: Naverbot
+User-agent: SeznamBot
+Allow: /
+
+# --- AI search and answer engines (citations in AI answers) ---
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+User-agent: YouBot
+User-agent: Amazonbot
+Allow: /
+
+# --- AI model training / grounding (helps models "know" Sauvenza) ---
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Meta-ExternalAgent
+User-agent: CCBot
+User-agent: cohere-ai
+User-agent: Bytespider
+Allow: /
+
+Sitemap: https://sauvenza.pages.dev/sitemap.xml

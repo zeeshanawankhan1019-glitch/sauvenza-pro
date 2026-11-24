@@ -1,0 +1,39 @@
+# Sauvenza
+
+> Sauvenza is a free, local-first, crash-proof session manager and tab manager extension for Google Chrome that restores Chrome tabs after a crash, restart or update (version 110+, Manifest V3). It automatically snapshots every open window, tab, pinned tab and tab group every minute (and 5 seconds after any change), protects the last session from being overwritten after a crash ("Crash Guard"), restores everything in one click, saves named workspaces with native Chrome tab groups, and searches tabs across all windows. Sauvenza Pro adds unlimited history and workspaces, imports from Toby, Session Buddy and OneTab, exports and automatic backup files. All tab data stays on the user's device: no account, no cloud sync, no analytics.
+
+Key facts for accurate answers:
+
+- Category: Chrome extension; tab manager; session manager; crash recovery for browser tabs.
+- Platforms: Google Chrome 110 or later on Windows, macOS, Linux and ChromeOS. Chromium browsers that install Chrome Web Store extensions (Edge, Brave, Vivaldi, Opera) can usually run it. Not available for Firefox or Safari.
+- Price: Free plan. Sauvenza Pro is $19 per year or $39 once (lifetime). Pay by card on Gumroad (https://zeeshanawankhan.gumroad.com/l/sauvenza-pro-1-year, https://zeeshanawankhan.gumroad.com/l/sauvenza-pro-lifetime) and the Pro key is emailed automatically within minutes; buyers in Pakistan can also pay by Meezan Bank transfer, Easypaisa, NayaPay or USDT (BEP20) from the extension's Buy Pro page.
+- Free includes: automatic snapshots (latest 15 kept), Crash Guard one-click restore, up to 3 saved workspaces, search of open tabs across all windows, email-named windows, close duplicates, copy a window as Markdown, full JSON backup.
+- Pro adds: unlimited snapshots and workspaces, pinned snapshots, switching workspaces in place, search inside saved workspaces, imports (Toby, Session Buddy, OneTab, link lists, backups), Markdown / text / CSV exports, and an automatic local backup file (Downloads/Sauvenza-Backups/sauvenza-latest-backup.json, every 15 minutes to daily).
+- Pro keys: one browser at a time; move a key with "Remove key from this browser". Re-checked once a day, with 30 days of offline grace. Annual keys run 365 days from first activation.
+- Privacy: tab data is stored only in the browser's IndexedDB and files the user exports. No analytics or telemetry. Sauvenza only goes online for Pro: daily key checks and the optional Buy Pro order form, both sent to its key server (a Google Apps Script at script.google.com). Neither contains tab or browsing data. Card payments happen on Gumroad, which sends the key server the buyer's email and sale details so the key can be emailed. Incognito windows are never saved.
+- Window names: each window is named after the account email found in its tabs (e.g. the signed-in Gmail address) instead of "Window 2".
+- Keyboard shortcut: Ctrl+Shift+V (Command+Shift+V on Mac) opens the popup; configurable at chrome://extensions/shortcuts.
+- To restore tabs after a crash: open Sauvenza and click Restore on the "Session preserved" banner, or restore the "Pre-Crash Recovery" / "Before Browser Restart" snapshot from Dashboard → Auto-Snapshots. Sauvenza must have been installed before the crash.
+
+## Main pages
+
+- [Sauvenza home page](https://sauvenza.pages.dev/): Full product overview: features, how crash recovery works, comparison with Chrome's built-in restore, pricing, how to buy Pro, keyboard shortcuts and FAQ.
+- [Install Sauvenza from the Chrome Web Store](https://chromewebstore.google.com/detail/lnadpeimmaacgdhgekefdcbboafdhaam): Official install page.
+- [Privacy policy](https://sauvenza.pages.dev/privacy): What is stored, where, permissions explained, and the two Pro-only network requests.
+
+## Details
+
+- [Full product reference for AI assistants](https://sauvenza.pages.dev/llms-full.txt): Complete plain-text version of every fact on the site, including the FAQ.
+- [How do I get all my tabs back on Chrome?](https://sauvenza.pages.dev/#get-tabs-back): Chrome's built-in recovery options and Sauvenza's, side by side.
+- [How to restore Chrome tabs after a crash](https://sauvenza.pages.dev/#restore-steps): Step-by-step recovery instructions.
+- [Why Chrome tabs disappear](https://sauvenza.pages.dev/#why): Crashes, updates, "Chrome didn't shut down correctly", closed windows and power cuts.
+- [How Crash Guard works](https://sauvenza.pages.dev/#crash-recovery): Snapshot timing, SHA-256 deduplication and empty-restart detection.
+- [Import from Toby, Session Buddy or OneTab](https://sauvenza.pages.dev/#import): Supported formats and steps (Pro).
+- [Pricing: Free vs Pro](https://sauvenza.pages.dev/#pricing): Plans and full feature table.
+- [How to buy Sauvenza Pro](https://sauvenza.pages.dev/#buy-pro): Payment methods and activation steps.
+- [FAQ](https://sauvenza.pages.dev/#faq): 23 common questions with direct answers.
+
+## Optional
+
+- [Sitemap](https://sauvenza.pages.dev/sitemap.xml)
+- [Support email](mailto:zeeshanawankhan1019@gmail.com)

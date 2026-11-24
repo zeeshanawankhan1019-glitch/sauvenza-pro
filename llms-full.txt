@@ -1,0 +1,211 @@
+# Sauvenza: Restore Chrome Tabs After a Crash or Restart
+
+> Sauvenza is a free, local-first Chrome session manager extension that saves a copy of every open window, tab, pinned tab and tab group every minute, protects that copy from being overwritten when Chrome crashes, and restores your entire session in one click, without accounts, cloud sync or tracking.
+
+- Website: https://sauvenza.pages.dev/
+- Install: https://chromewebstore.google.com/detail/lnadpeimmaacgdhgekefdcbboafdhaam
+- Privacy policy: https://sauvenza.pages.dev/privacy
+- Support: zeeshanawankhan1019@gmail.com
+- Current version: 1.0.2
+- Last updated: 2026-11-19
+
+## At a glance
+
+| Fact | Value |
+| --- | --- |
+| Product type | Chrome extension: tab manager and session manager |
+| Works on | Google Chrome 110+ on Windows, macOS, Linux and ChromeOS |
+| Price | Free plan; Pro $19/year or $39 once (lifetime) |
+| Free plan | Latest 15 snapshots and up to 3 saved workspaces |
+| Saves | Windows, tabs, pinned tabs, tab group titles, colours and collapsed state |
+| Snapshot frequency | Every minute by default (adjustable 1–30 minutes), plus 5 seconds after any tab change |
+| Where data lives | Only on the user's computer (browser IndexedDB and files the user exports) |
+| Imports from (Pro) | Toby, Session Buddy, OneTab, Markdown, CSV and plain URL lists, Sauvenza backups |
+| Exports to | Full JSON backup on every plan; Markdown, plain text and CSV on Pro |
+| Keyboard shortcut | Ctrl+Shift+V (Mac: Command+Shift+V) |
+| Tracking | None: no analytics, no telemetry; incognito windows are never saved |
+| Permissions | tabs, tabGroups, storage, alarms, downloads, unlimitedStorage; host: script.google.com and script.googleusercontent.com (Pro key checks and the Buy Pro order form only) |
+
+## Why did all my Chrome tabs disappear?
+
+- Chrome crashed or froze and had to be force-quit.
+- A Windows, macOS or Chrome update restarted the computer, and Chrome reopened with a blank window.
+- Chrome showed "Chrome didn't shut down correctly" and the Restore button was missing, did nothing, or was dismissed.
+- A new session overwrote the old one as soon as browsing started again.
+- The wrong window was closed, taking its tab groups and pinned tabs with it.
+- A power cut or a dead battery shut the computer down mid-session.
+
+Sauvenza keeps its own copy of the session, separate from Chrome's session files, so none of these events can erase it.
+
+## How Crash Guard works
+
+1. Continuous snapshots: a snapshot runs on a timer (every minute by default) and 5 seconds after any tab, window or group change (debounced).
+2. Fingerprint deduplication: each session's URL list, pinning and grouping is hashed with SHA-256; a new snapshot is saved only when the fingerprint changes.
+3. Empty-restart detection: if Chrome comes back with just one New Tab page and the previous snapshot had more than 3 tabs, nothing is overwritten.
+4. Recovery is pinned: the previous snapshot is relabelled "Pre-Crash Recovery" and pinned, so it is never pruned.
+5. Notification: for 15 minutes after Chrome starts, the toolbar icon shows a red "!" and the popup offers "Restore".
+6. On every browser start, the last snapshot from the previous session is labelled "Before Browser Restart" and protected from pruning.
+
+## How to restore Chrome tabs after a crash with Sauvenza
+
+1. Reopen Chrome. It does not matter if Chrome's own Restore prompt is missing or was dismissed.
+2. Open Sauvenza with Ctrl+Shift+V (Command+Shift+V on Mac) or click the toolbar icon.
+3. Click "Restore" on the "Session preserved" banner. Every window, tab, pinned tab and tab group reopens.
+4. For an older session, open the dashboard → Auto-Snapshots and restore any snapshot, such as "Pre-Crash Recovery" or "Before Browser Restart".
+
+Requirement: Sauvenza must have been installed and running before the tabs were lost. It cannot recover sessions from before installation.
+
+## How to get your Chrome tabs back without an extension
+
+1. If Chrome shows "Chrome didn't shut down correctly", click Restore straight away, before opening any new tabs.
+2. Press Ctrl+Shift+T (Command+Shift+T on Mac) to reopen the last closed window or tabs. Press it again to go further back.
+3. Open the ⋮ menu → History → Recently closed and pick the entry with the right number of tabs.
+4. Search chrome://history (Ctrl+H) to reopen individual pages.
+5. Next time, set Settings → On startup → Continue where you left off.
+
+Chrome keeps only its most recent session. A hard crash, a power cut, or browsing before you restore can leave nothing to bring back; that is the gap Sauvenza's snapshot history fills.
+
+## Features
+
+- Automatic session snapshots of every window, tab, pinned tab and tab group. Free keeps the latest 15; Pro keeps unlimited history and can pin snapshots to keep them forever.
+- Crash Guard recovery with one-click Restore.
+- Workspaces: save one window or all windows as named workspaces (3 on Free, unlimited on Pro); reopen them with native Chrome tab groups (title, colour, collapsed state) and pinned tabs. Rename, recolour, delete tabs with undo, move tabs between workspaces.
+- Switch workspaces in place (Pro): "Switch to" saves the current window, closes its unpinned tabs and opens the target workspace in the same window.
+- Cross-window search: the popup searches open tabs in all windows (plus saved workspaces on Pro). Enter jumps to the existing tab instead of opening a duplicate.
+- Windows are named after the account email found in their tabs (for example the signed-in Gmail address); windows without one keep a numbered name. Names appear in search, workspaces, snapshots and exports.
+- Close duplicate tabs across all windows in one click (pinned tabs are kept).
+- Copy the current window as a Markdown list of links.
+- Import (Pro) from Toby JSON, Session Buddy JSON or text, OneTab text, Markdown/CSV link lists, plain URL lists and Sauvenza backups. Auto-detect, preview, then Merge or Replace (Replace has one-step undo).
+- Full JSON backups (optionally with snapshots) on every plan. Pro adds Markdown, plain text, JSON and CSV exports of one workspace or all of them.
+- Automatic backup file (Pro): Downloads/Sauvenza-Backups/sauvenza-latest-backup.json containing all workspaces plus the latest 5 snapshots, refreshed every 15 minutes, 30 minutes, 1, 2, 6 or 12 hours, or daily. The file is overwritten, not duplicated, and can be hidden from Chrome's downloads list.
+- Safe restores: restricted URLs (chrome://, about:, extension pages, data:, javascript:) are skipped individually and reported, so one bad URL never breaks a restore. Tabs suspended by tab-suspender extensions are saved with their real URL.
+- Light, dark or system theme. Site icons can be turned off.
+
+## Who uses Sauvenza
+
+- Researchers and students: dozens of sources across several windows, collected over days.
+- Developers: docs, pull requests, dashboards and local servers; the whole setup comes back after a restart, tab groups included.
+- Freelancers and agencies: one workspace per client; switch between clients in place with Pro.
+- Anyone with 50+ tabs open who would lose an afternoon if Chrome closed unexpectedly.
+
+## Keyboard shortcuts
+
+| Keys | Action |
+| --- | --- |
+| Ctrl+Shift+V / Command+Shift+V | Open the Sauvenza popup (change at chrome://extensions/shortcuts) |
+| Up / Down | Move through results |
+| Enter | Jump to the tab in whichever window it is in, or open it from a workspace |
+| Esc | Clear the search, then close the popup |
+
+## Privacy
+
+- Tabs, workspaces and snapshots are stored only in the browser's IndexedDB, plus files the user chooses to export.
+- No analytics, telemetry, tracking, account or third-party scripts.
+- Sauvenza only goes online for Pro, and both requests go to its key server (a Google Apps Script at script.google.com):
+  - Pro key checks (on activation, once a day while a key is saved, and on removal): the key, a random ID for the browser and the extension version.
+  - The Buy Pro order form, only if the user sends it: plan, payment method, amount, currency, transaction ID, email, and optionally name, paying account and a note. It is emailed to the developer to confirm the payment and send the key.
+- Neither request contains tab, URL or browsing data. Unless the user activates a Pro key or sends the order form, Sauvenza makes no network requests of its own.
+- Card payments happen on Gumroad; Gumroad sends the key server the buyer's email, name, product, price and sale ID so the Pro key can be emailed automatically. Card details go only to Gumroad.
+- Incognito windows are never saved.
+- Sauvenza has no content scripts and does not read or change web page content.
+- Uninstalling Sauvenza makes Chrome delete its stored data; export a backup first.
+
+## Sauvenza vs Chrome's built-in session restore
+
+| Capability | Chrome built-in | Sauvenza |
+| --- | --- | --- |
+| Reopen the last session after a crash | Via the Restore prompt or "Continue where you left off" | Yes, one click, even after Chrome's prompt is gone |
+| History of earlier sessions | Limited to History → Recently closed | 15 snapshots on Free, unlimited on Pro |
+| Protects the last session from an empty restart | No dedicated protection | Crash Guard pins it as Pre-Crash Recovery |
+| Named workspaces of whole windows | Saved tab groups only | Yes, with tab groups and pinned tabs (3 on Free, unlimited on Pro) |
+| Search tabs across windows | Open tabs | Open tabs, plus saved workspaces on Pro |
+| Window names | Typed by hand (Name window…) | Automatic, from the account email in each window |
+| Export sessions to JSON, Markdown or CSV | No (bookmarks export only) | JSON backup on Free, Markdown and CSV on Pro |
+| Import from Toby, Session Buddy or OneTab | No | Yes, on Pro |
+| Where tab data is kept | Locally, and in the Google Account when Chrome sync is on | Only on the user's device |
+
+## Pricing
+
+| Plan | Price | Includes |
+| --- | --- | --- |
+| Free | $0 forever | Automatic snapshots (latest 15), Crash Guard, up to 3 workspaces, search of open tabs across windows, close duplicates, copy a window as Markdown, full JSON backup |
+| Pro Annual | $19 per year ($1.58/month, paid once a year) | Everything in Free + unlimited snapshots and pinning, unlimited workspaces and switching in place, search inside saved workspaces, imports, Markdown/text/CSV exports, automatic backup file |
+| Pro Lifetime | $39 once | Everything in Pro Annual, one payment, never expires |
+
+How to buy Pro: pay by card on Gumroad (Pro Annual: https://zeeshanawankhan.gumroad.com/l/sauvenza-pro-1-year · Pro Lifetime: https://zeeshanawankhan.gumroad.com/l/sauvenza-pro-lifetime); the Pro key is emailed automatically within minutes. In Pakistan you can also pay by Meezan Bank transfer (any Pakistani bank or Raast), Easypaisa, NayaPay or USDT (BEP20) from the Buy Pro page in the extension (Settings & Pro → Get Annual / Get Lifetime) and send the order form; the key is emailed once the payment is confirmed. Paste the key into Settings & Pro → Activate. Prices are in USD; Pakistani payment methods are charged at the PKR equivalent.
+
+A key works on one browser at a time and can be moved with "Remove key from this browser". It is re-checked once a day; if the key server can't be reached, Pro keeps working for 30 days after the last successful check.
+
+## Frequently asked questions
+
+### What is Sauvenza?
+Sauvenza is a crash-proof tab and session manager for Google Chrome. It automatically snapshots every open window, tab, pinned tab and tab group, restores your whole session after a crash or restart, and lets you save named workspaces you can reopen or switch between. All data stays on your computer: there is no account, no cloud sync and no tracking.
+
+### Why did all my Chrome tabs disappear?
+Usually because Chrome restarted without bringing back the previous session: a crash, a forced quit, a Windows or Chrome update, a power cut, or a “Restore pages” prompt that was missing or dismissed. Chrome keeps only its most recent session, so once you start browsing again the old one can be overwritten. Sauvenza keeps its own snapshot history, saved every minute, so a lost session can still be restored when Chrome's own restore comes back empty.
+
+### How do I restore my Chrome tabs after a crash?
+If Sauvenza was installed before the crash, open the Sauvenza popup (Ctrl+Shift+V, or ⌘+Shift+V on Mac) and click Restore on the “Session preserved” banner. Every window, tab, pinned tab and tab group comes back. You can also open the dashboard, go to Auto-Snapshots, and restore the snapshot labelled “Pre-Crash Recovery” or “Before Browser Restart”.
+
+### How do I restore Chrome tabs after a restart or update?
+First try Chrome's own tools: click Restore on the “Chrome didn't shut down correctly” bar, press Ctrl+Shift+T (⌘+Shift+T on Mac), or open History → Recently closed. If those come up empty and Sauvenza was installed before the restart, open Sauvenza and click Restore on the “Session preserved” banner, or restore the “Before Browser Restart” snapshot from the dashboard.
+
+### Chrome says “Chrome didn't shut down correctly”. How do I get my pages back?
+Click Restore on that bar straight away, before opening new tabs. If the bar disappeared or Restore did nothing, press Ctrl+Shift+T or check History → Recently closed. If Sauvenza is installed, it has already kept your previous session as “Pre-Crash Recovery” or “Before Browser Restart”, so you can restore it from the Sauvenza popup or dashboard even after Chrome's bar is gone.
+
+### I dismissed Chrome's “Restore pages” prompt. Can Sauvenza still get my tabs back?
+Yes, as long as Sauvenza was running before the tabs were lost. Sauvenza keeps its own snapshot history, separate from Chrome's session files, so dismissing Chrome's prompt or starting a fresh session does not erase it. If Chrome reopens with only a New Tab page and your previous session had more than 3 tabs, Sauvenza's Crash Guard refuses to overwrite it and pins the old snapshot as “Pre-Crash Recovery”. Sauvenza cannot recover tabs from before it was installed.
+
+### How do I recover Chrome tab groups that disappeared?
+Check History → Recently closed and the saved tab groups on your bookmarks bar first. Sauvenza stores each tab group's name, colour and collapsed state in every snapshot and workspace, so restoring a snapshot from before the groups vanished recreates them exactly.
+
+### Can Sauvenza restore tabs after a force quit or power cut?
+Yes, as long as it was running before. Sauvenza saves a snapshot every minute and about 5 seconds after any tab change, so only changes from the last few seconds before the shutdown can be missing. After the restart, open Sauvenza and click Restore, or pick the latest snapshot in Auto-Snapshots.
+
+### Does Sauvenza upload my tabs or browsing history?
+No. Tabs, workspaces and snapshots are stored only in your browser's local database (IndexedDB) and in files you choose to export. Sauvenza has no analytics, telemetry or account system. It only goes online for Pro: to activate or re-check a Pro key (once a day), and to send the Buy Pro order form if you choose to buy. Neither request contains any tab, URL or browsing data. Incognito windows are never saved.
+
+### Is Sauvenza free?
+Yes. The free plan includes automatic snapshots (the latest 15 are kept), Crash Guard one-click restore, up to 3 saved workspaces, search across all open windows, closing duplicate tabs, copying a window as Markdown, and full JSON backups. Sauvenza Pro costs $19 per year or $39 once for lifetime access. It removes those limits and adds pinned snapshots, switching workspaces in place, search inside saved workspaces, imports from Toby, Session Buddy and OneTab, Markdown, text and CSV exports, and an automatic backup file.
+
+### Is Sauvenza a good Session Buddy or OneTab alternative?
+Yes, especially if you want your tabs saved without having to remember. Sauvenza takes snapshots on its own, keeps tab groups and pinned tabs, and restores whole sessions in one click. Sauvenza Pro imports your Session Buddy, OneTab and Toby data, so you can switch without losing your saved sessions.
+
+### How do I import my tabs from Toby, Session Buddy or OneTab?
+Importing is a Sauvenza Pro feature. Export your data from the old extension, then open the Sauvenza dashboard, choose Import / Export, and drop in the file or paste the text. Sauvenza auto-detects Toby JSON, Session Buddy JSON or text, OneTab text, Markdown and CSV link lists, and plain URL lists. Preview the result, then choose Merge to add it to your vault or Replace to swap your vault (Replace can be undone in one step).
+
+### Does Sauvenza save tab groups and pinned tabs?
+Yes. Snapshots and workspaces store each tab group's title, colour and collapsed state, plus which tabs are pinned. When you open or restore them, Sauvenza recreates the native Chrome tab groups exactly.
+
+### How does Sauvenza name my windows?
+Sauvenza names each window after the account email it finds in that window's tabs. Webmail such as Gmail shows the signed-in address in the tab title, and Google apps can include it in the link, so a window with your work Gmail open is labelled with your work address instead of “Window 2”. A window with no visible email keeps a numbered name. The names appear in search results, saved workspaces, snapshots and Markdown, text and CSV exports.
+
+### Which browsers does Sauvenza support?
+Sauvenza is built for Google Chrome 110 or later on Windows, macOS, Linux and ChromeOS. It is a standard Manifest V3 extension, so Chromium-based browsers that install extensions from the Chrome Web Store, such as Microsoft Edge, Brave, Vivaldi and Opera, can usually run it too. Firefox and Safari are not supported.
+
+### Will Sauvenza slow down Chrome?
+Sauvenza runs as a Manifest V3 service worker that sleeps when idle. It wakes on a timer and about 5 seconds after tabs change, compares a SHA-256 fingerprint of your session, and writes a new snapshot only when something actually changed. It never reloads, suspends or injects scripts into your pages.
+
+### Where is my data stored, and what happens if I uninstall Sauvenza?
+Everything is stored in your Chrome profile, in Sauvenza's own IndexedDB database. Chrome deletes that data when you uninstall the extension, so export a full JSON backup first (Import / Export → Full backup). Sauvenza Pro can also write an automatic backup file to Downloads/Sauvenza-Backups/sauvenza-latest-backup.json, which stays on your disk even if the Chrome profile is lost.
+
+### How do I move Sauvenza to a new computer?
+On the old computer, open Import / Export and download a full backup (JSON), optionally including snapshots. Install Sauvenza on the new computer, import that file and choose Merge or Replace. Importing a backup needs Sauvenza Pro: first click Remove key from this browser in Settings & Pro on the old computer, then activate the same key on the new one. Sauvenza has no cloud sync, so your data only moves when you move the file.
+
+### What is the difference between Sauvenza Free and Pro?
+Both plans include automatic snapshots, Crash Guard recovery, search across all open windows, closing duplicates, copying a window as Markdown and full JSON backups. Free keeps the latest 15 snapshots and up to 3 workspaces. Pro makes both unlimited and adds pinned snapshots, switching workspaces in place, search inside saved workspaces, imports, Markdown, text and CSV exports, and an automatic backup file written on a schedule (every 15 minutes to daily).
+
+### How do I buy Sauvenza Pro?
+Click Get Pro Annual or Get Pro Lifetime on the Sauvenza website, or in Sauvenza open Settings & Pro and click Get Annual or Get Lifetime. Pay by card through Gumroad, and your Pro key is emailed to you automatically within minutes. In Pakistan you can also pay by Meezan Bank transfer, Easypaisa, NayaPay or USDT (BEP20) on the Buy Pro page and send the short order form; your key is emailed once the payment is confirmed. Then paste the key into Settings & Pro and click Activate.
+
+### Can I use my Pro key on another computer?
+A key works on one browser at a time. To move it, open Settings & Pro on the old browser and click Remove key from this browser, then activate the key on the new one. If you no longer have the old browser, email support and we will free the key for you. Annual keys run for 365 days from their first activation; moving a key does not restart the year.
+
+### Does Sauvenza Pro work offline?
+Yes. Sauvenza re-checks your Pro key once a day. If the key server can't be reached, Pro keeps working for 30 days after the last successful check, then pauses until it can check again.
+
+### How do I open Sauvenza with the keyboard?
+Press Ctrl+Shift+V on Windows, Linux and ChromeOS, or ⌘+Shift+V on Mac. If another extension already uses that shortcut, set your own at chrome://extensions/shortcuts. Inside the popup, use ↑ and ↓ to move, Enter to jump to a tab, and Esc to clear the search or close the popup.
+
+---
+Toby, Session Buddy and OneTab are trademarks of their respective owners; Sauvenza is not affiliated with them. Google Chrome is a trademark of Google LLC.
